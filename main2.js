@@ -3,7 +3,7 @@ function startClassification(){
     navigator.mediaDevices.getUserMedia({
         audio:true
     });
-    classifier=ml5.soundClassifier('https://teachablemachine.withgoogle.com/models/YNPPyZ5N3/',modelReady);
+    classifier=ml5.soundClassifier('https://teachablemachine.withgoogle.com/models/YNPPyZ5N3/model.json',modelReady);
 }
 
 function modelReady(){
@@ -24,4 +24,5 @@ function gotResults(error,results){
         document.getElementById("result_label").innerHTML="I can hear-"+results[0].label;
         document.getElementById("result_confidence").innerHTML="Accuracy-"+(results[0].confidence*100).toFixed(2)+"%";
         document.getElementById("result_label").style.color="rgb("+random_r+","+random_g+","+random_b+")";
-        document.getElementById("result_confidence").style.color="rgb("+random_r+","+random_g+","+random_b+")";}
+        document.getElementById("result_confidence").style.color="rgb("+random_r+","+random_g+","+random_b+")"; 
+    }}
